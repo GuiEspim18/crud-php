@@ -3,14 +3,14 @@ require "conecta.php";
 
 function inserir($conexao, $aluno, $primeira, $segunda){
 
-    $sql = "INSERT INTO alunos VALUES('$aluno','$primeira','$segunda')";
+    $sql = "INSERT INTO alunos(aluno, primeira, segunda) VALUES('$aluno','$primeira','$segunda')";
 
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 
 
 function atualizar($conexao, $id, $aluno, $primeira, $segunda){
-    $sql = "UPDATE alunos SET nome = '$aluno' WHERE id = $id";
+    $sql = "UPDATE alunos SET aluno = '$aluno', primeira = $primeira, segunda = $segunda WHERE id = $id";
     mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 }
 
@@ -22,7 +22,7 @@ function excluir($conexao, $id){
 
 function ler($conexao){
 
-    $sql = "SELECT * FROM alunos ORDER BY nome";
+    $sql = "SELECT * FROM alunos ORDER BY aluno";
 
     $resultado = mysqli_query($conexao, $sql) 
                 or die(mysqli_error($conexao));

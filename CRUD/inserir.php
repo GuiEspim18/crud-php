@@ -1,3 +1,20 @@
+<?php
+require "conecta.php";
+require "funcoes.php";
+
+if(isset($_POST['cadastrar-aluno'])){
+
+
+	$aluno = $_POST['nome'];
+	$primeira = $_POST['primeira'];
+	$segunda = $_POST['segunda'];
+	
+	inserir($conexao, $aluno, $primeira, $segunda);
+
+	header("location:index.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -36,21 +53,3 @@
 
 
 
-
-<?php
-require "conecta.php";
-require "funcoes.php";
-
-if(isset($_POST['cadastrar-aluno'])){
-
-
-	$aluno = $_POST['nome'];
-	$primeira = $_POST['primeira'];
-	$segunda = $_POST['segunda'];
-	
-	inserir($conexao, $aluno, $primeira, $segunda);
-
-	header("location:index.php");
-}
-
-?>
